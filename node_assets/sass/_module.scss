@@ -1,0 +1,459 @@
+.disappeared {
+  visibility: hidden;
+}
+.invisible {
+  visibility: hidden;
+}
+.inline {
+  display: inline-block;
+  vertical-align: top;
+}
+.center-wrapper {
+  margin: 15px auto;
+  text-align: center;
+}
+.right-wrapper {
+  margin: 15px;
+  text-align: right;
+}
+.no-result {
+  letter-spacing: normal;
+}
+.fixed {
+  position: fixed;
+}
+.result-message {
+  letter-spacing: normal;
+}
+
+@mixin color-f($color) {
+  color: $color;
+  &:hover { color: $color; }
+}
+@mixin btn-text($color: white) {
+  @include color-f($color);
+  text-decoration: none;
+}
+
+@mixin text-vaporized {
+  text-indent: 180%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@mixin text-vaporized-left {
+  text-indent: -180%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@mixin text-vaporized-off {
+  text-indent: 0 !important;
+  white-space: normal !important;
+}
+
+@mixin clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    content: "\0020";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+@mixin pure-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@mixin hover-underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+@mixin align-center-middle {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+@mixin disable-link {
+  pointer-events: none;
+  cursor: default;
+}
+
+@mixin flexbox {
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-box;
+  display:-webkit-flexbox;
+  display:-moz-flexbox;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  display:-moz-flex;
+  display:-ms-flex;
+  display:flex;
+  -webkit-box-lines:multiple;
+  -moz-box-lines:multiple;
+  -webkit-flex-wrap:wrap;
+  -moz-flex-wrap:wrap;
+  -ms-flex-wrap:wrap;
+  flex-wrap:wrap;
+}
+
+@mixin easy-select__pc {
+
+  select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    text-indent: 0.01px;
+    -moz-text-indent: 0.01px;
+    -ms-text-indent: 0.01px;
+    text-overflow: '';
+    -moz-text-overflow: "";
+    -ms-text-overflow: "";
+    padding: 4px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      background: #999 url(/assets/images/common/bg-slash-dark.png);
+      border-radius: 0;
+      outline: none;
+    }
+  }
+
+  .easy-select-box {
+    text-align: left;
+    outline: none;
+    width: 100%;
+    height: 100%;
+
+    .esb-displayer {
+      display: block;
+      background: transparent;
+      zoom: 1;
+      padding: 7px 3px;
+      margin: 0;
+      border: 0;
+    }
+
+    .esb-dropdown {
+      display: none;
+      position: relative;
+      z-index: 9999;
+      padding: 3px;
+      border: 1px solid white;
+      background: white;
+      width: 100% !important;
+
+      .esb-item {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@mixin easy-button {
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin accordion-list {
+  @include pure-ul;
+  font-size: 160%;
+  
+  &>li { // Accorion Listの親要素
+    padding: 20px 20px;
+    border-top: 1px solid white;
+    &:last-child {
+      border-bottom: 1px solid white;
+    }
+    
+    // Accordion Listのtrigger
+    &>a.accordion-list-trigger {
+      display: block;
+      // width: 97%;
+      background: url($btn-minus__path) no-repeat right;
+      &.collapsed {
+        background: url($btn-plus__path) no-repeat right;
+      }
+      // color: $text_color;
+    }
+    
+    // Accordionを使わない直リンク
+    &.direct-link {
+      a {
+        display: block;
+        width: 100%;
+        // background: url($btn-jump-sp__path) no-repeat right;
+      }
+    }
+
+    // Accordion Listの子要素
+    ul.accordion-list-items {
+      @include pure-ul;
+      padding-left: 30px;
+
+      li.accordion-list-item {
+        margin: 30px 0;
+        // a { color: $text_color; }
+      }
+    }
+  }
+}
+
+@mixin shadow {
+  -moz-box-shadow: 1px 5px 3px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 1px 5px 3px rgba(0,0,0,0.2);
+  -o-box-shadow: 1px 5px 3px rgba(0,0,0,0.2);
+  -ms-box-shadow: 1px 5px 3px rgba(0,0,0,0.2);
+}
+
+// ***
+// after要素にabsolute属性のコンテンツを追加することで、
+// $label_pathで指定した画像を、includeしたエレメントにオーバーレイさせます
+// ***
+// Ex);
+// @include label-overlay('/assets/image.png', 32px, 32px, top 180px-16px right 10px);
+@mixin label-overlay($label_path, $w: 100%, $h: 100%, $args: ()) {
+  position: relative;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background: url($label_path) no-repeat;
+    width: $w;
+    height: $h;
+    z-index: 200;
+
+    $offsets: top right bottom left;
+    @each $offset in $offsets { 
+      $index: index($args, $offset);
+      @if $index {
+        @if $index == length($args) {
+          #{$offset}: 0;
+        } @else {
+          $next: nth($args, $index + 1);
+          @if is-valid-length($next) {
+            #{$offset}: $next;
+          } @else if index($offsets, $next) {
+            #{$offset}: 0;
+          } @else {
+            @warn "Invalid value `#{$next}` for offset `#{$offset}`.";
+          }
+        }
+      }
+    }
+  }
+}
+
+// ***
+// after要素にabsolute属性のコンテンツを追加することで、
+// $label_pathで指定した画像を、includeしたエレメントにオーバーレイさせます
+// ***
+// Ex);
+// @include label-overlay('/assets/image.png', 32px, 32px, top 180px-16px right 10px);
+@mixin label-overlay($label_path, $w: 100%, $h: 100%, $args: ()) {
+  position: relative;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background: url($label_path) no-repeat;
+    width: $w;
+    height: $h;
+    z-index: 200;
+
+    $offsets: top right bottom left;
+    @each $offset in $offsets { 
+      $index: index($args, $offset);
+      @if $index {
+        @if $index == length($args) {
+          #{$offset}: 0;
+        } @else {
+          $next: nth($args, $index + 1);
+          @if is-valid-length($next) {
+            #{$offset}: $next;
+          } @else if index($offsets, $next) {
+            #{$offset}: 0;
+          } @else {
+            @warn "Invalid value `#{$next}` for offset `#{$offset}`.";
+          }
+        }
+      }
+    }
+  }
+}
+
+// ***
+// after|before要素にincludeすることでinline-block形式のラベルを追加します
+// ***
+@mixin label-block($label_path, $w: 100%, $h: 100%) {
+  content: " ";
+  display: block;
+  background: url($label_path) no-repeat;
+  width: $w;
+  height: $h;
+}
+
+// ***
+// after|before要素にincludeすることでinline-block形式のラベルを追加します
+// ***
+@mixin label-inline($label_path, $w: 100%, $h: 100%) {
+  content: " ";
+  display: inline-block;
+  background: url($label_path) no-repeat;
+  width: $w;
+  height: $h;
+}
+
+// ***
+// backgroundに画像と開始位置を指定して、
+// 統合された画像の一部を表示するブロックコンテンツを定義します
+// ***
+@mixin bgmap($bg_path, $w, $h, $top: 0, $left: 0) {
+  display: block;
+  background: url($bg_path) no-repeat;
+  width: $w;
+  height: $h;
+  background-position: $left $top;
+  // top: $top;
+  // left: $left;
+}
+
+@mixin bgmap-hover($bg_path, $total_w, $total_h, $direction: 'vertical', $total: 1, $index: 0) {
+  display: block;
+  background: url($bg_path) no-repeat;
+
+  @if $direction == 'horizontal' {
+    $w: $total_w / 2;
+    $h: $total_h / $total;
+    width: $w;
+    height: $h;
+    background-position: 0 (-$h * $index);
+
+    &:hover {
+      background-position: (-$w) (-$h * $index);
+    }
+  } @else {
+    $w: $total_w / $total;
+    $h: $total_h / 2;
+    width: $w;
+    height: $h;
+    background-position: (-$w * $index) 0;
+
+    &:hover {
+      background-position: (-$w * $index) (-$h);
+    }
+  }
+}
+
+// ***
+// 複数ボタンを1枚の画像に集約して、なおかつそれらの画像の幅/高さが一定でないとき
+// pixel単位でoffsetを指定できる
+// ***
+@mixin bgmap-hover-offset($bg_path, $total_w, $total_h, $direction: 'vertical', $offset_px: 0px, $size_px: 100px) {
+  display: block;
+  background: url($bg_path) no-repeat;
+
+  @if $direction == 'horizontal' { // 水平にセットの画像を並べるとき
+    $w: $total_w / 2;
+    $h: $size_px;
+    width: $w;
+    height: $h;
+    background-position: 0 $offset_px;
+
+    &:hover {
+      background-position: (-$w) $offset_px;
+    }
+  } @else { // 垂直にセットの画像を並べるとき
+    $w: $size_px;
+    $h: $total_h / 2;
+    width: $w;
+    height: $h;
+    background-position: $offset_px 0;
+
+    &:hover {
+      background-position: $offset_px (-$h);
+    }
+  }
+}
+
+// ***
+// ボタンにhoverした際画像が変わる動き
+// ***
+@mixin bgmap-hover-transition($bg_path, $w, $h, $bg_path_mouse_on, $bg_path_mouse_on_w,
+                                $bg_path_mouse_on_h, $transition_time: 1) {
+  display: inline-block;
+  background: url($bg_path) no-repeat;
+  width: $w;
+  height: $h;
+  -webkit-transition: background #{$transition_time}s ease;
+  -moz-transition:    background #{$transition_time}s ease;
+  -o-transition:      background #{$transition_time}s ease;
+  transition:         background #{$transition_time}s ease;
+  
+  &:hover {
+    display: inline-block;
+    background: url($bg_path_mouse_on) no-repeat;
+    width: $bg_path_mouse_on_w;
+    height: $bg_path_mouse_on_h;
+  }
+}
+
+// ***
+// Ex:
+// @include btn-gnavi-online-shop-pc;
+// @include transit {
+//   @include btn-gnavi-online-shop-pc-hover;
+// }
+// ***
+@mixin transit( $transition_time: 0.5 ) {
+  -webkit-transition: background #{$transition_time}s ease;
+  -moz-transition:    background #{$transition_time}s ease;
+  -o-transition:      background #{$transition_time}s ease;
+  transition:         background #{$transition_time}s ease;
+  &:hover {
+    @content;
+  }
+}
+
+// -------------------------
+// Utils
+// -------------------------
+
+@function is-valid-length($value) {
+  @return (type-of($value) == "number" and not unitless($value)) 
+       or (index(auto initial inherit 0, $value) != false);
+}
+
+// $color_list: white black
+// カラーリスト渡してindex=1のカラーを返します
+@function front_color( $color_list ) {
+  @return nth( $color_list, 1 );
+}
+// $color_list: white black
+// カラーリスト渡してindex=2のカラーを返します
+@function bg_color( $color_list ) {
+  @return nth( $color_list, 2 );
+}
