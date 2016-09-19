@@ -27,33 +27,45 @@ $(function(){
     handler: function(direction) {
       if ( direction == "up" ) {
         setBrickSection("brick-section-1")
+        $("#main-title").text("metheglin")
+        $("#section-2 h2").removeClass("disappeared")
       } else {
         setBrickSection("brick-section-2")
+        $("#main-title").text($("#section-2 h2").text())
+        $("#section-2 h2").addClass("disappeared")
       }
     },
-    offset: '75%'
+    offset: '0%'
   })
   var waypoint3 = new Waypoint({
     element: document.getElementById('section-3'),
     handler: function(direction) {
       if ( direction == "up" ) {
         setBrickSection("brick-section-2")
+        $("#main-title").text($("#section-2 h2").text())
+        $("#section-3 h2").removeClass("disappeared")
       } else {
         setBrickSection("brick-section-3")
+        $("#main-title").text($("#section-3 h2").text())
+        $("#section-3 h2").addClass("disappeared")
       }
     },
-    offset: '75%'
+    offset: '0%'
   })
   var waypoint3 = new Waypoint({
     element: document.getElementById('section-4'),
     handler: function(direction) {
       if ( direction == "up" ) {
         setBrickSection("brick-section-3")
+        $("#main-title").text($("#section-3 h2").text())
+        $("#section-4 h2").removeClass("disappeared")
       } else {
         setBrickSection("brick-section-4")
+        $("#main-title").text($("#section-4 h2").text())
+        $("#section-4 h2").addClass("disappeared")
       }
     },
-    offset: '75%'
+    offset: '0%'
   })
 });
 
@@ -67,7 +79,7 @@ var setBrickSection = function(className) {
 }
 var accumulateBricks = function() {
   var rowNum = 70
-  var colNum = 9
+  var colNum = 16
   var primes = [
     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 
     53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 

@@ -44,27 +44,33 @@ body {
   color: #F0C30F;
   font-family: "Lato", "游ゴシック", YuGothic, "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS ゴシック", "MS Gothic", sans-serif;
   font-size: 1.4rem;
-  letter-spacing: 1px; }
-
-h1 {
-  color: white;
-  font-size: 3.5rem;
-  letter-spacing: 3px;
-  font-family: 'Baloo Chettan', cursive;
-  text-shadow: #F0C30F 2px 2px 0px, #F0C30F -2px 2px 0px, #F0C30F 2px -2px 0px, #F0C30F -2px -2px 0px; }
+  letter-spacing: 1px;
+  padding-top: 126px; }
 
 h2 {
+  z-index: 2;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 70px;
   color: white;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   letter-spacing: 2px;
   font-family: 'Baloo Chettan', cursive;
   text-shadow: #F0C30F 1px 1px 0px, #F0C30F -1px 1px 0px, #F0C30F 1px -1px 0px, #F0C30F -1px -1px 0px; }
 
+.container {
+  margin: 0;
+  padding: 0; }
+
 .wall {
   zoom: 1;
   position: fixed;
-  width: 100vw;
-  padding: 20px 0; }
+  top: 0;
+  width: 100%;
+  height: 126px;
+  padding-bottom: 30px;
+  z-index: 1;
+  background: white; }
   .wall:before, .wall:after {
     display: block;
     height: 0;
@@ -72,9 +78,20 @@ h2 {
     content: "\0020"; }
   .wall:after {
     clear: both; }
+  .wall .main-title {
+    color: white;
+    text-align: center;
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    font-family: 'Baloo Chettan', cursive;
+    text-shadow: #F0C30F 3px 3px 0px, #F0C30F -2px 2px 0px, #F0C30F 3px -3px 0px, #F0C30F -2px -2px 0px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 15px 0; }
   .wall .wall-side {
-    width: 24vw;
-    height: 100vh;
+    width: 45%;
+    height: 126px;
     overflow: hidden;
     position: relative; }
     .wall .wall-side.wall-left {
@@ -91,8 +108,7 @@ h2 {
           float: right; }
     .wall .wall-side .wall-container {
       zoom: 1;
-      position: absolute;
-      width: 600px; }
+      position: absolute; }
       .wall .wall-side .wall-container:before, .wall .wall-side .wall-container:after {
         display: block;
         height: 0;
@@ -163,9 +179,13 @@ h2 {
               width: 10px; }
 
 .section {
-  width: 640px;
+  width: 740px;
   margin: auto;
-  text-align: center; }
+  margin-bottom: 160px;
+  text-align: center;
+  color: #F0C30F; }
+  .section:nth-of-type(2n+1) {
+    color: #D0A001; }
   .section.section-1 .thumbnail {
     margin: auto;
     margin-bottom: 30px;
@@ -176,3 +196,40 @@ h2 {
       clip-path: polygon(100% 50%, 84.70057% 54.56842%, 91.05185% 60.99981%, 82.33578% 63.39392%, 93.30127% 75%, 77.76737% 71.30665%, 80.05204% 80.05204%, 71.30665% 77.76737%, 75% 93.30127%, 63.39392% 82.33578%, 60.99981% 91.05185%, 54.56842% 84.70057%, 50% 100%, 45.43158% 84.70057%, 39.00019% 91.05185%, 36.60608% 82.33578%, 25.0% 93.30127%, 28.69335% 77.76737%, 19.94796% 80.05204%, 22.23263% 71.30665%, 6.69873% 75.0%, 17.66422% 63.39392%, 8.94815% 60.99981%, 15.29943% 54.56842%, 0% 50.0%, 15.29943% 45.43158%, 8.94815% 39.00019%, 17.66422% 36.60608%, 6.69873% 25.0%, 22.23263% 28.69335%, 19.94796% 19.94796%, 28.69335% 22.23263%, 25.0% 6.69873%, 36.60608% 17.66422%, 39.00019% 8.94815%, 45.43158% 15.29943%, 50.0% 0%, 54.56842% 15.29943%, 60.99981% 8.94815%, 63.39392% 17.66422%, 75.0% 6.69873%, 71.30665% 22.23263%, 80.05204% 19.94796%, 77.76737% 28.69335%, 93.30127% 25.0%, 82.33578% 36.60608%, 91.05185% 39.00019%, 84.70057% 45.43158%);
       -webkit-clip-path: polygon(100% 50%, 84.70057% 54.56842%, 91.05185% 60.99981%, 82.33578% 63.39392%, 93.30127% 75%, 77.76737% 71.30665%, 80.05204% 80.05204%, 71.30665% 77.76737%, 75% 93.30127%, 63.39392% 82.33578%, 60.99981% 91.05185%, 54.56842% 84.70057%, 50% 100%, 45.43158% 84.70057%, 39.00019% 91.05185%, 36.60608% 82.33578%, 25.0% 93.30127%, 28.69335% 77.76737%, 19.94796% 80.05204%, 22.23263% 71.30665%, 6.69873% 75.0%, 17.66422% 63.39392%, 8.94815% 60.99981%, 15.29943% 54.56842%, 0% 50.0%, 15.29943% 45.43158%, 8.94815% 39.00019%, 17.66422% 36.60608%, 6.69873% 25.0%, 22.23263% 28.69335%, 19.94796% 19.94796%, 28.69335% 22.23263%, 25.0% 6.69873%, 36.60608% 17.66422%, 39.00019% 8.94815%, 45.43158% 15.29943%, 50.0% 0%, 54.56842% 15.29943%, 60.99981% 8.94815%, 63.39392% 17.66422%, 75.0% 6.69873%, 71.30665% 22.23263%, 80.05204% 19.94796%, 77.76737% 28.69335%, 93.30127% 25.0%, 82.33578% 36.60608%, 91.05185% 39.00019%, 84.70057% 45.43158%);
       animation: clip 1s infinite; }
+  .section.section-1 .description p {
+    margin: 16px 0; }
+  .section.section-2 table {
+    width: 100%; }
+    .section.section-2 table tr {
+      text-align: left; }
+      .section.section-2 table tr th {
+        width: 25%;
+        padding-bottom: 20px;
+        vertical-align: top; }
+      .section.section-2 table tr td {
+        width: 75%;
+        padding-bottom: 20px;
+        vertical-align: top; }
+  .section.section-3 table {
+    width: 100%; }
+    .section.section-3 table tr td {
+      text-align: left;
+      vertical-align: top;
+      padding-bottom: 20px; }
+      .section.section-3 table tr td:first-child {
+        width: 15%; }
+      .section.section-3 table tr td:nth-of-type(2) {
+        width: 85%; }
+  .section.section-4 table {
+    width: 100%; }
+    .section.section-4 table tr td {
+      text-align: left;
+      vertical-align: top;
+      padding-bottom: 20px; }
+      .section.section-4 table tr td:first-child {
+        width: 15%; }
+      .section.section-4 table tr td:nth-of-type(2) {
+        width: 85%; }
+  .section.section-4 .account-link img {
+    width: 32px;
+    height: 32px; }
