@@ -21,7 +21,7 @@
 // $theme_color: #F0C30F;
 $theme_color: #e1b60b;
 $sub_theme_color: #c09b05;
-$header_h: 126px;
+$header_h: 102px;
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@ a {
 body {
   color: $theme_color;
   font-family:"Lato", "游ゴシック", YuGothic, "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS ゴシック", "MS Gothic", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.12rem;
   letter-spacing: 1px;
   padding-top: $header_h;
 }
@@ -41,7 +41,7 @@ body {
   color: white;
   // font-weight: bold;
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   letter-spacing: 3px;
   font-family: 'Baloo Chettan', cursive;
   text-shadow: $theme_color 3px 3px 0px, $theme_color -2px 2px 0px,
@@ -54,7 +54,7 @@ h2 {
   padding-bottom: 120px;
   color: white;
   // font-weight: bold;
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   letter-spacing: 2px;
   font-family: 'Baloo Chettan', cursive;
   text-shadow: $theme_color 1px 1px 0px, $theme_color -1px 1px 0px,
@@ -121,8 +121,8 @@ h2 {
         margin: 3px 0;
         .brick {
           display: block;
-          width: 38px;
-          height: 12px;
+          width: 30.4px;
+          height: 9.6px;
           border: 1px solid $theme_color;
           -webkit-border-radius: 4px;
                   border-radius: 4px;
@@ -134,40 +134,40 @@ h2 {
           transition: width .3s ease-in-out;
           
           &.brick-md {
-            width: 30px;
+            width: 24px;
             -webkit-transition: width .7s ease-in-out;
             -moz-transition: width .7s ease-in-out;
             -o-transition: width .7s ease-in-out;
             transition: width .7s ease-in-out;
           }
           &.brick-sm {
-            width: 23px;
+            width: 18.4px;
             -webkit-transition: width .8s ease-in-out;
             -moz-transition: width .8s ease-in-out;
             -o-transition: width .8s ease-in-out;
             transition: width .8s ease-in-out;
           }
           &.brick-sm {
-            width: 11px;
+            width: 8.8px;
           }
 
           &.brick-section-2 {
-            width: 31px;
-            &.brick-md { width: 26px; }
-            &.brick-sm { width: 20px; }
-            &.brick-sm { width: 11px; }
+            width: 24.8px;
+            &.brick-md { width: 20.8px; }
+            &.brick-sm { width: 16px; }
+            &.brick-sm { width: 8.8px; }
           }
           &.brick-section-3 {
-            width: 35px;
-            &.brick-md { width: 29px; }
-            &.brick-sm { width: 24px; }
-            &.brick-sm { width: 12px; }
+            width: 28px;
+            &.brick-md { width: 23.2px; }
+            &.brick-sm { width: 19.2px; }
+            &.brick-sm { width: 9.6px; }
           }
           &.brick-section-4 {
-            width: 36px;
-            &.brick-md { width: 30px; }
-            &.brick-sm { width: 26px; }
-            &.brick-sm { width: 21px; }
+            width: 28.8px;
+            &.brick-md { width: 24px; }
+            &.brick-sm { width: 20.8px; }
+            &.brick-sm { width: 16.8px; }
           }
         }
       }
@@ -176,7 +176,7 @@ h2 {
 }
 
 .section {
-  width: 740px;
+  width: 620px;
   margin: auto;
   // margin-top: 40px;
   margin-bottom: 160px;
@@ -188,9 +188,9 @@ h2 {
       margin: auto;
       margin-top: 30px;
       margin-bottom: 30px;
-      width: 240px;
-      height: 240px;
-      border-radius: 120px;
+      width: 192px;
+      height: 192px;
+      border-radius: 96px;
       overflow: hidden;
       img {
         width: 100%;
@@ -213,6 +213,7 @@ h2 {
         text-align: left;
         th {
           width: 25%;
+          padding-right: 10px;
           padding-bottom: 20px;
           vertical-align: top;
         }
