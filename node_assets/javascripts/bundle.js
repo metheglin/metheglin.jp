@@ -71,7 +71,7 @@ var setBrickSection = function(className) {
     addClass(className)
 }
 var accumulateBricks = function() {
-  var rowNum = 70
+  var rowNum = 10
   var colNum = 16
   var primes = [
     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 
