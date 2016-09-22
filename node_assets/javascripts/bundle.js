@@ -8,19 +8,12 @@ root.$  = $;
 root._  = _;
 
 $(function(){
+  if ( typeof atob === "function") {
+    $(".embeded_contact").text(atob("cGlnbXliYW5rQGdtYWlsLmNvbQ=="))
+  }
+
   $("#wall-left").append(accumulateBricks())
   $("#wall-right").append(accumulateBricks())
-
-  // var top = $('#box1').offset().top; //初期値を取得
-  // $(window).scroll(function() {
-  //     var value = $(this).scrollTop(); //スクロールの値を取得
-  //     $('#scrollValue').text(value);
- 
-  //     $('#box1').css('top', top + value / 2);
-  //     $('#box2').css('top', top + value / 4);
-  //     $('#box3').css('top', top + value / 6);
-  //     $('#box4').css('top', top + value / 8);
-  // });
 
   var waypoint2 = new Waypoint({
     element: document.getElementById('section-2'),
