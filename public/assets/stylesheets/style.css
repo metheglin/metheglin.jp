@@ -63,7 +63,8 @@ h2 {
 
 .container {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  width: 100%; }
 
 .wall {
   zoom: 1;
@@ -180,6 +181,30 @@ h2 {
               width: 20.8px; }
             .wall .wall-side .wall-container .wall-row .brick.brick-section-4.brick-sm {
               width: 16.8px; }
+
+.navigation {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  text-align: center; }
+  .navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin: auto; }
+    .navigation ul li {
+      display: inline-block;
+      margin: 0 4px; }
+      .navigation ul li .btn-mode {
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        padding: 6px 5px;
+        font-weight: bold;
+        color: #e1b60b; }
+        .navigation ul li .btn-mode.active {
+          background: #e1b60b;
+          color: white; }
 
 .section {
   width: 620px;

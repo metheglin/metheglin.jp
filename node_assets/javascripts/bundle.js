@@ -1,4 +1,5 @@
 var root      = Function("return this")();
+var Util      = require("./util");
 
 // require("../support")
 var $   = require("jquery");
@@ -7,7 +8,36 @@ require('waypoints/lib/noframework.waypoints.js')
 root.$  = $;
 root._  = _;
 
+function loadMode() {
+  $(document).on("click", ".btn-mode", function(){
+    $(document).off("click", ".btn-mode")
+    var mode = $(this).data("mode")
+    history.pushState(null,null,"#"+mode)
+    loadMode()
+  })
+
+  if ( Util.getUrlHash() === "#intuitive" ) {
+    $(".btn-mode").removeClass("active")
+    $(".btn-mode[data-mode='intuitive']").addClass("active")
+    $(".logical").fadeOut()
+    $(".intuitive").fadeIn()
+  } else if ( Util.getUrlHash() === "#logical" ) {
+    $(".btn-mode").removeClass("active")
+    $(".btn-mode[data-mode='logical']").addClass("active")
+    $(".intuitive").fadeOut()
+    $(".logical").fadeIn()
+  } else {
+    $(".btn-mode").removeClass("active")
+    $(".btn-mode[data-mode='all']").addClass("active")
+    $(".logical").fadeIn()
+    $(".intuitive").fadeIn()
+  }
+}
+
 $(function(){
+
+  loadMode();
+
   if ( typeof atob === "function") {
     $(".embeded_contact").text(atob("cGlnbXliYW5rQGdtYWlsLmNvbQ=="))
   }
