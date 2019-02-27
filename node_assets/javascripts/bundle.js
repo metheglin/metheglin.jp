@@ -26,10 +26,15 @@ function loadMode() {
     $(".btn-mode[data-mode='logical']").addClass("active")
     $(".intuitive").fadeOut()
     $(".logical").fadeIn()
-  } else {
+  } else if ( Util.getUrlHash() === "#all" ) {
     $(".btn-mode").removeClass("active")
     $(".btn-mode[data-mode='all']").addClass("active")
     $(".logical").fadeIn()
+    $(".intuitive").fadeIn()
+  } else {
+    $(".btn-mode").removeClass("active")
+    $(".btn-mode[data-mode='intuitive']").addClass("active")
+    $(".logical").fadeOut()
     $(".intuitive").fadeIn()
   }
 }
