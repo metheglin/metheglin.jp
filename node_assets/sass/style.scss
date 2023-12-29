@@ -19,8 +19,8 @@
 }
 
 // $theme_color: #F0C30F;
-$theme_color: #e1b60b;
-$sub_theme_color: #c09b05;
+$theme_color: #e6aa05;
+$sub_theme_color: #a6780c;
 $header_h: 102px;
 * {
   margin: 0;
@@ -35,6 +35,7 @@ body {
   font-size: 1.12rem;
   letter-spacing: 1px;
   padding-top: $header_h;
+  padding-bottom: 200px;
 }
 
 @mixin main-title {
